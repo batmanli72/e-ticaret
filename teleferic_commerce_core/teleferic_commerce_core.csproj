@@ -6,4 +6,14 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\teleferic_commerce_domain\teleferic_commerce_domain.csproj" />
+    <ProjectReference Include="..\teleferic_commerce_infrastructure\teleferic_commerce_infrastructure.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="AplicationServices\" />
+    <Folder Include="DTO\" />
+  </ItemGroup>
+
 </Project>

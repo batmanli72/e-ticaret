@@ -6,4 +6,16 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\teleferic_commerce_domain\teleferic_commerce_domain.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Concrete\Repository\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Models\ResponseModel.cs" />
+  </ItemGroup>
+
 </Project>
