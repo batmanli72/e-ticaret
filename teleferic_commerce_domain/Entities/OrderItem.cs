@@ -25,3 +25,4 @@ namespace teleferic_commerce_domain.Entities
         public Guid ProductId { get; set; }
         public Product Product { get; set; } = null!;
     }
+}
