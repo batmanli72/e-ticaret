@@ -12,7 +12,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="AplicationServices\" />
     <Folder Include="DTO\" />
   </ItemGroup>
 

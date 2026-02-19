@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using teleferic_commerce_core.AplicationServices.Concretes;
+using teleferic_commerce_core.AplicationServices.Ýnterfaces;
 using teleferic_commerce_domain.Entities;
 using teleferic_commerce_domain.Interfaces.Repository;
 using teleferic_commerce_infrastructure.Concrete.Repository;
+using teleferic_commerce_infrastructure.UoW;
 using teleferic_core_domain.Data;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -14,6 +17,8 @@ builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(builder.Configuration.GetConnectionString("DefaultConnection")));
 builder.Services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+builder.Services.AddScoped<IUnitOfWork, UnitOfWork>();
+builder.Services.AddScoped<ICategoryService, CategoryService>(); 
 builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
 {
     options.Password.RequireDigit = false;
@@ -22,13 +27,15 @@ builder.Services.AddIdentity<ApplicationUser, IdentityRole>(options =>
     options.Password.RequireNonAlphanumeric = false;
     options.Password.RequiredLength = 6;
 }).AddEntityFrameworkStores<ApplicationDbContext>().AddDefaultTokenProviders();
-
+builder.Services.AddSwaggerGen();
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
 {
-    app.MapOpenApi();
+    app.UseSwagger();
+
+        app.UseSwaggerUI();
 }
 
 app.UseHttpsRedirection();

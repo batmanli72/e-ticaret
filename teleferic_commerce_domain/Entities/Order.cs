@@ -26,7 +26,7 @@ namespace teleferic_commerce_domain.Entities
         public string OrderStatus { get; set; } = "Processing";
         public string PaymentStatus { get; set; } = "Pending";
         [ForeignKey(nameof(User))]
-        public string UserId { get; set; }
+        public string UserId { get; set; } = string.Empty;
         public virtual ApplicationUser User { get; set; } = null!;
 
         public virtual ICollection<OrderItem> OrderItems { get; set; } = new List<OrderItem>();
