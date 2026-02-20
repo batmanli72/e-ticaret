@@ -15,7 +15,7 @@ namespace teleferic_commerce_domain.Entities
         public decimal Price { get; set; }
         public int Stock { get; set; }
         [ForeignKey(nameof(Category))]
-        public Guid Id { get; set; }
+        public Guid Id { get; set; } = Guid.NewGuid();
         public virtual Category Category { get; set; } = null!;
         public virtual ICollection<ProductImage> ProductImages { get; set; } = new List<ProductImage>();
     }

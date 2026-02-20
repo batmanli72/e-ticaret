@@ -7,12 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\teleferic_commerce_domain\teleferic_commerce_domain.csproj" />
-    <ProjectReference Include="..\teleferic_commerce_infrastructure\teleferic_commerce_infrastructure.csproj" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity" Version="2.3.9" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="DTO\" />
+    <ProjectReference Include="..\teleferic_commerce_domain\teleferic_commerce_domain.csproj" />
+    <ProjectReference Include="..\teleferic_commerce_infrastructure\teleferic_commerce_infrastructure.csproj" />
   </ItemGroup>
 
 </Project>

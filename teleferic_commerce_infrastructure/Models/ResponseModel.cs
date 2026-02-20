@@ -6,7 +6,10 @@ using System.Threading.Tasks;
 
 namespace teleferic_commerce_infrastructure.Models
 {
-    internal class ResponseMoels
+    public class ResponseModel<T>
     {
+        public T Data { get; set; }
+        public string Message { get; set; }
+        public bool Success { get; set; }
     }
 }
